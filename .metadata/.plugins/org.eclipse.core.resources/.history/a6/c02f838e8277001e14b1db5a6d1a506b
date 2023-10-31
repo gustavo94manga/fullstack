@@ -1,0 +1,5 @@
+package com.angel.jwt.dtos;
+
+public record SignUpDto() {
+
+}

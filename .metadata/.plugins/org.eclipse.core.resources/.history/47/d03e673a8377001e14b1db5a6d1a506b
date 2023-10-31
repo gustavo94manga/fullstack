@@ -1,0 +1,5 @@
+package com.angel.jwt;
+
+public interface UserRepository {
+
+}

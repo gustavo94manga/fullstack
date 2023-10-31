@@ -1,0 +1,5 @@
+package com.angel.jwt.securityConfig;
+
+public class WebConfig {
+
+}
