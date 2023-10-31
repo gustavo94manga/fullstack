@@ -56,13 +56,13 @@ export class ContentComponent {
 		);
 	}
 
-  // isLoggedIn(): boolean {
-  //   return this.axiosService.getAuthToken() !== null;
-  // }
+  isLoggedIn(): boolean {
+    return this.axiosService.getAuthToken() !== null;
+  }
 
-  // onLogout(): void {
-  //   this.axiosService.setAuthToken(null);
-  //   this.componentToShow = "welcome";
-  // }
+  onLogout(): void {
+    this.axiosService.setAuthToken(null);
+    this.componentToShow = "welcome";
+  }
 
 }
