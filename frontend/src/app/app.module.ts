@@ -12,6 +12,8 @@ import { WelcomeContentComponent } from './components/welcome-content/welcome-co
 import { AuthContentComponent } from './components/auth-content/auth-content.component';
 import { ContentComponent } from './components/content/content.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { AuthService } from './services/auth.service';
+import { HttpService } from './services/http.service';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     FormsModule,
     HttpClientModule
   ],
+  providers: [AuthService, HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
