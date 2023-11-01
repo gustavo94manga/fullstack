@@ -19,16 +19,17 @@ export class ContentComponent {
     this.httpService.request('POST', '/login', {
       login: input.login,
       password: input.password
-    }).subscribe(
-      response => {
+    }).subscribe({
+      next: (response) => {
         this.httpService.setAuthToken(response.token);
         this.componentToShow = "messages";
       },
-      error => {
+      error: (error) => {
         this.httpService.setAuthToken(null);
         this.componentToShow = "welcome";
+        console.error('Error logging in:', error);
       }
-    );
+    });
   }
 
   onRegister(input: any): void {
@@ -37,16 +38,17 @@ export class ContentComponent {
       lastName: input.lastName,
       login: input.login,
       password: input.password
-    }).subscribe(
-      response => {
+    }).subscribe({
+      next: (response) => {
         this.httpService.setAuthToken(response.token);
         this.componentToShow = "messages";
       },
-      error => {
+      error: (error) => {
         this.httpService.setAuthToken(null);
         this.componentToShow = "welcome";
+        console.error('Error registering:', error);
       }
-    );
+    });
   }
 
   isLoggedIn(): boolean {
