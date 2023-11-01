@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../../services/http.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-auth-content',
@@ -9,7 +9,7 @@ import { HttpService } from '../../services/http.service';
 export class AuthContentComponent implements OnInit {
   data: string[] = [];
 
-  constructor(private httpService: HttpService) {}
+  constructor(private authService: AuthService) {}
 
   // ngOnInit(): void {
   //   this.httpService.request('GET', '/messages').subscribe(
@@ -26,13 +26,13 @@ export class AuthContentComponent implements OnInit {
   //   );
   // }
   ngOnInit(): void {
-    this.httpService.request('GET', '/messages').subscribe({
+    this.authService.request('GET', '/messages').subscribe({
       next: (response) => {
         this.data = response;
       },
       error: (error) => {
         if (error.status === 401) {
-          this.httpService.setAuthToken(null);
+          this.authService.setAuthToken(null);
         } else {
           this.data = [error.message];
         }

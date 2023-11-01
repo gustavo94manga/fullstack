@@ -13,7 +13,6 @@ import { AuthContentComponent } from './components/auth-content/auth-content.com
 import { ContentComponent } from './components/content/content.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AuthService } from './services/auth.service';
-import { HttpService } from './services/http.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,7 @@ import { HttpService } from './services/http.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService, HttpService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
