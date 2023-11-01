@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpService } from '../../services/http.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-content',
@@ -9,23 +9,23 @@ import { HttpService } from '../../services/http.service';
 export class ContentComponent {
   componentToShow: string = "welcome";
 
-  constructor(private httpService: HttpService) { }
+  constructor(private authService: AuthService) { }
 
   showComponent(componentToShow: string): void {
     this.componentToShow = componentToShow;
   }
 
   onLogin(input: any): void {
-    this.httpService.request('POST', '/login', {
+    this.authService.request('POST', '/login', {
       login: input.login,
       password: input.password
     }).subscribe({
       next: (response) => {
-        this.httpService.setAuthToken(response.token);
+        this.authService.setAuthToken(response.token);
         this.componentToShow = "messages";
       },
       error: (error) => {
-        this.httpService.setAuthToken(null);
+        this.authService.setAuthToken(null);
         this.componentToShow = "welcome";
         console.error('Error logging in:', error);
       }
@@ -33,18 +33,18 @@ export class ContentComponent {
   }
 
   onRegister(input: any): void {
-    this.httpService.request('POST', '/register', {
+    this.authService.request('POST', '/register', {
       firstName: input.firstName,
       lastName: input.lastName,
       login: input.login,
       password: input.password
     }).subscribe({
       next: (response) => {
-        this.httpService.setAuthToken(response.token);
+        this.authService.setAuthToken(response.token);
         this.componentToShow = "messages";
       },
       error: (error) => {
-        this.httpService.setAuthToken(null);
+        this.authService.setAuthToken(null);
         this.componentToShow = "welcome";
         console.error('Error registering:', error);
       }
@@ -52,11 +52,11 @@ export class ContentComponent {
   }
 
   isLoggedIn(): boolean {
-    return this.httpService.getAuthToken() !== null;
+    return this.authService.getAuthToken() !== null;
   }
 
   onLogout(): void {
-    this.httpService.setAuthToken(null);
+    this.authService.setAuthToken(null);
     this.componentToShow = "welcome";
   }
 }
