@@ -5,7 +5,7 @@
   (logoutEvent)="onLogout()"
 ></app-buttons>
 
-	<app-welcome-content *ngIf="componentToShow == 'welcome'"/>
+	<app-home *ngIf="componentToShow == 'welcome'"/>
 	<app-login-form *ngIf="componentToShow == 'login'" (onSubmitLoginEvent)="onLogin($event)" (onSubmitRegisterEvent)="onRegister($event)"/>
 	<app-auth-content *ngIf="componentToShow == 'messages'"/>
 </div>
