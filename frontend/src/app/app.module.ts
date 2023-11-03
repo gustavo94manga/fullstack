@@ -10,7 +10,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthContentComponent } from './components/auth-content/auth-content.component';
-import { ContentComponent } from './components/content/content.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AuthService } from './services/auth.service';
 
@@ -22,7 +21,6 @@ import { AuthService } from './services/auth.service';
     LoginFormComponent,
     HomeComponent,
     AuthContentComponent,
-    ContentComponent,
     NavBarComponent
   ],
   imports: [
