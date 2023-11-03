@@ -1,5 +1,0 @@
-package com.angel.jwt.exceptions;
-
-public class AppException {
-
-}
