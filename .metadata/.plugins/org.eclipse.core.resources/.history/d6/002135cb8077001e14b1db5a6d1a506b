@@ -1,5 +1,0 @@
- package com.angel.jwt.controllers;
-
-public class MessagesController {
-
-}
